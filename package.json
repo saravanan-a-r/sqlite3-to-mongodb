@@ -1,0 +1,33 @@
+{
+  "name": "sqlite3-to-mongodb",
+  "version": "1.0.0",
+  "description": "A node module which will convert sqlite3 database into a mongo database including indexing",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saravanan-a-r/sqlite3-to-mongodb.git"
+  },
+  "keywords": [
+    "Mongo",
+    "migrate",
+    "sqlite",
+    "migrate",
+    "sqlite",
+    "to",
+    "mongo",
+    "mongodb"
+  ],
+  "author": "Saravanan A R",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/saravanan-a-r/sqlite3-to-mongodb/issues"
+  },
+  "homepage": "https://github.com/saravanan-a-r/sqlite3-to-mongodb#readme",
+  "dependencies": {
+    "mongodb": "^3.1.13",
+    "sqlite3": "^4.0.6"
+  }
+}
