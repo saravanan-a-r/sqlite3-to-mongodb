@@ -5,9 +5,10 @@ const fs = require("fs");
 
 class DBMigration {
 
-    constructor(sqlitePath, mongoUrl) {
+    constructor(sqlitePath, mongoUrl, logPath) {
         this.sqlitePath = sqlitePath;
         this.mongoUrl = mongoUrl;
+        this.logPath = logPath;
     }
 
     setSqlitePath(sqlitePath) {
