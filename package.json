@@ -2,7 +2,7 @@
   "name": "sqlite3-to-mongodb",
   "version": "1.0.0",
   "description": "A node module which will convert sqlite3 database into a mongo database including indexing",
-  "main": "index.js",
+  "main": "example.js",
   "scripts": {
     "test": "mocha --recursive"
   },

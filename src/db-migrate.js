@@ -1,6 +1,7 @@
 const {SqliteHandler} = require("./sqlite-handler.js");
 const {MongoHandler} = require("./mongo-handler.js");
 const logManager = require("./log-manager.js");
+const fs = require("fs");
 
 class DBMigration {
 
@@ -31,16 +32,16 @@ class DBMigration {
         return new Promise( async (resolve, reject) => {
             try {
                 logManager.writeLog("Migration initiated");
-                let sqlitePath = this.sqlitePath;
-                let mongoUrl = this.mongoUrl;
-                
-                logManager.writeLog("Sqlite path :: " + this.sqlitePath);
-                logManager.writeLog("Mongo Url path :: " + this.mongoUrl);
 
-                if(!sqlitePath) {
-                    logManager.writeLog("The given sqlite path is undefined");
-                    return;
+                let sqlitePath = this.sqlitePath;
+                logManager.writeLog("Sqlite path :: " + this.sqlitePath);
+                if(!fs.existsSync(sqlitePath)) {
+                    throw new Error("The given sqlite path is not valid. Please provide a valid path");
                 }
+
+                let mongoUrl = this.mongoUrl;
+                logManager.writeLog("Mongo Url path :: " + mongoUrl);
+
                 
                 let sqliteHandler = new SqliteHandler(sqlitePath);
                 let mongoHandler = new MongoHandler(mongoUrl);
@@ -67,6 +68,7 @@ class DBMigration {
             }
             catch(err) {
                 logManager.writeLog("Error in migration", err);
+                reject(err);
             }
         });
     }

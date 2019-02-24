@@ -39,7 +39,7 @@ class LogManager {
             return "";
         }
         if(typeof obj === "object") {
-            return JSON.stringify(obj);
+            return JSON.stringify(obj, Object.getOwnPropertyNames(obj));
         }
         return obj;
     }
