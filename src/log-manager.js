@@ -13,8 +13,14 @@ class LogManager {
 
     writeLog(log, errorObj) {
         try {
+            let logPath = this.logPath;
             log = this.formLog(log, errorObj);
-            fs.appendFileSync(this.logPath, log);   
+            if(logPath) {
+                fs.appendFileSync(this.logPath, log);   
+            }
+            else {
+                console.log(log);
+            }
         }
         catch(err) {
             console.log("Error while writing log" + this.parseObj(err));
